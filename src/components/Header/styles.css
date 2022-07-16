@@ -1,0 +1,13 @@
+.header {
+  align-items: center;
+  background-color: #9602f8;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  padding: 40px;
+}
+
+.header h3 {
+  font-size: 2rem;
+}
