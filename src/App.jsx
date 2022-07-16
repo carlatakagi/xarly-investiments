@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import EquitiesProvider from './context/EquitiesProvider';
 import Login from './pages/Login';
-import Equities from './pages/Equities';
-import DepositAndWithdraw from './pages/DepositAndWIthdraw';
-import PurchaseAndSale from './pages/PurchaseAndSale';
+import Equities from './pages/Equities/index';
+import DepositAndWithdraw from './pages/DepositAndWithdraw/index';
+import PurchaseAndSale from './pages/PurchaseAndSale/index';
 
 function App() {
 

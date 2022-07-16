@@ -21,3 +21,9 @@ html {
     width: 100vw;
   }
 }
+
+@media (max-width: 360px) {
+  .header {
+    padding: 30px;
+  }
+}

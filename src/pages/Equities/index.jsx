@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../../components/Header';
+import Header from '../../components/Header/index';
 
 function Equities () {
   const navigate = useNavigate();
@@ -16,7 +16,9 @@ function Equities () {
       <Header />
 
       <div>
-        pagina de acoes
+        <h1>
+          pagina de acoes
+        </h1>
       </div>
 
       <button
