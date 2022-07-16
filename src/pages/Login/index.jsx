@@ -32,9 +32,10 @@ function Login() {
     console.log('clicou');
 
     const userEmail = {email: email};
-    const userPassword = {password: password};
+    const dateNow = new Date().toLocaleString();
 
     localStorage.setItem('email', JSON.stringify(userEmail));
+    localStorage.setItem('data e hora', JSON.stringify(dateNow));
     navigate('/equities');
   }
 
@@ -48,7 +49,7 @@ function Login() {
         <label htmlFor="email">
           <input
             name="email"
-            placeholder="E-mail address"
+            placeholder="E-mail"
             onChange={e => handleEmailChange(e)}
             type="email"
           />
@@ -57,7 +58,7 @@ function Login() {
         <label htmlFor="password">
           <input
             name="password"
-            placeholder="Password"
+            placeholder="Senha"
             onChange={e => handlePasswordChange(e)}
             type="password"
           />
@@ -68,7 +69,7 @@ function Login() {
           onClick={handleClick}
           type="submit"  
         >
-          Sign in
+          Entrar
         </button>
       </form>
     </div>
