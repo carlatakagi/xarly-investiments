@@ -1,0 +1,23 @@
+html {
+  font-size: 50%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .container .form-login {
+    display: block;
+  }
+}
+
+@media (max-width: 540px) {
+  .container .form-login {
+    display: block;
+    height: 100vh;
+    padding: 30px;
+    width: 100vw;
+  }
+}
