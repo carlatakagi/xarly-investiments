@@ -26,7 +26,7 @@ function Equities () {
         disabled={false}
         onClick={handleClick}
       >
-        Deposit/ Withdraw
+        Depósito/ Saque
       </button>
     </div>
   )
