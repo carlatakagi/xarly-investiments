@@ -1,6 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/index';
+import TableMyEquities from '../../components/TableMyEquities';
+import TableOtherEquities from '../../components/TableOtherEquities';
+import './styles.css';
 
 function Equities () {
   const navigate = useNavigate();
@@ -15,11 +18,14 @@ function Equities () {
     <div>
       <Header />
 
-      <div>
+      <div className="title-equities">
         <h1>
           pagina de acoes
         </h1>
       </div>
+
+      <TableMyEquities />
+      <TableOtherEquities />
 
       <button
         type="submit"

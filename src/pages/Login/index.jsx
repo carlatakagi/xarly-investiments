@@ -35,7 +35,7 @@ function Login() {
     const dateNow = new Date().toLocaleString();
 
     localStorage.setItem('email', JSON.stringify(userEmail));
-    localStorage.setItem('data e hora', JSON.stringify(dateNow));
+    localStorage.setItem('newDate', JSON.stringify(dateNow));
     navigate('/equities');
   }
 
