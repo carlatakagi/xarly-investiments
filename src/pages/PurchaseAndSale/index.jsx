@@ -5,6 +5,7 @@ function PurchaseAndSale () {
   return (
     <div>
       <Header />
+      
       pagina de compra e venda de acoes
     </div>
   )
