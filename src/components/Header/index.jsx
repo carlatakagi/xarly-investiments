@@ -15,7 +15,7 @@ function Header() {
   return (
     <div className="header">
       <h3>
-        {user.email}
+        Usuário: {user.email}
       </h3>
     </div>
   )
