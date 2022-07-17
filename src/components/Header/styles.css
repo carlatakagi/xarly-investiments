@@ -6,6 +6,7 @@
   flex-wrap: nowrap;
   justify-content: flex-end;
   padding: 40px;
+  width: 100%;
 }
 
 .header h3 {

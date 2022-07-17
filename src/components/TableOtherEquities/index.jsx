@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { fetchApi } from '../../services/fetchApi';
 import './styles.css';
 
 function TableOtherEquities () {
+  const [equities, setEquities] = useState([]);
+
+  useEffect(() => {
+    const fetchEquities = async () => {
+      const result = await fetchApi();
+
+      setEquities(result);
+    };
+
+    fetchEquities();
+  }, []);
+
   return(
     <div className="table">
       <table>
@@ -20,7 +33,12 @@ function TableOtherEquities () {
 
         <tbody>
           <tr>
-            <td></td>
+            <td>Ação</td>
+            <td>Quantidade</td>
+            <td>Valor</td>
+            <td>
+              <button>Compra</button>
+            </td>
           </tr>
         </tbody>
       </table>

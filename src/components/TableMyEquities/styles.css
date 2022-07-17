@@ -1,6 +1,8 @@
 .table {
   display: flex;
   font-size: 2.5rem;
+  height: 50vh;
+
   margin: auto;
   padding: 20px;
   text-align: center;
@@ -8,11 +10,15 @@
 
 .table table {
   align-items: center;
-  border: 5px red solid;
+  border-radius: 5px;
+  border: 1px rgba(0, 0, 0, 0.389) solid;
   display: flex;
   flex-direction: column;
   height: auto;
   justify-content: center;
+
+  margin-top: 10px;
+  padding: 24px;
   width: 100%;
 }
 
@@ -20,13 +26,21 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  
 }
 
-.table table tbody {
-  display: flex;
+.table table thead tr th {
+  border: 1px rgba(0, 0, 0, 0.389) solid;
+  border-radius: 5px;
+  margin: 7px;
+  padding: 35px;
+  width: 100%;
 }
 
-.table table tbody tr {
-  display: inline-block;
+.table table tbody tr td {
+  border: 1px rgba(0, 0, 0, 0.389) solid;
+
+  display: inline;
+  margin: 7px;
+  padding: 30px;
+  width: 100%;
 }

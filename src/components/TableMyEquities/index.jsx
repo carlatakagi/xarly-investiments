@@ -20,7 +20,13 @@ function TableMyEquities () {
 
         <tbody>
           <tr>
-            <td></td>
+            <td>Ação</td>
+            <td>Quantidade</td>
+            <td>Valor</td>
+            <td>
+              <button>Compra</button>
+              <button>Venda</button>
+            </td>
           </tr>
         </tbody>
       </table>
