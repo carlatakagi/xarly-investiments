@@ -22,8 +22,9 @@ html {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 405px) {
   .header {
     padding: 30px;
   }
+  
 }
