@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import EquitiesContext from './EquitiesContext';
 
 function EquitiesProvider({children}) {
-
   return (
     <EquitiesContext.Provider value={ {children} }>
       {children}
