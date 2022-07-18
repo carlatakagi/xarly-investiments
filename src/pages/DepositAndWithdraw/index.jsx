@@ -5,37 +5,40 @@ import './styles.css';
 
 function DepositAndWithdraw () {
   const navigate = useNavigate();
-  const [cash, setCash] = useState('');
+  const [cash, setCash] = useState(999.99);
   const [buttonConfirmDisabled, isButtonConfirmDisabled] = useState(true);
   const [buttonBackDisabled, isButtonBackDisabled] = useState(false);
 
   const handleInputChange = (e) => {
-    setCash(e.target.value);
+    // setCash(e.target.value);
     isButtonConfirmDisabled(false);
   }
 
   const changeDepButtonColor = () => {
     const depositButton = document.querySelector('.deposit-btn');
-    const withdrawButton = document.querySelector('.withdraw-btn');
+    //const withdrawButton = document.querySelector('.withdraw-btn');
     const button = document.querySelector('button');
 
     button.addEventListener('click', () => {
-      depositButton.style.background = 'green';
-      withdrawButton.style.background = '#ffe100';
+      console.log('clicou no deposito');
+
+      depositButton.style.backgroundColor = 'green';
     })
+  
   }
 
-  const changeWdButtonColor = () => {
+  /* const changeWdButtonColor = () => {
     const depositButton = document.querySelector('.deposit-btn');
     const withdrawButton = document.querySelector('.withdraw-btn');
     const button = document.querySelector('button');
 
     button.addEventListener('click', () => {
+      console.log('clicou no retirada');
+      depositButton.style.background = '#ffe100';
       withdrawButton.style.background = 'red';
-      //depositButton.style.background = '#ffe100';
 
     })    
-  }
+  } */
 
   const handleClickReturn = (e) => {
     e.preventDefault();
@@ -44,6 +47,8 @@ function DepositAndWithdraw () {
 
   const handleClickConfirm = (e) => {
     e.preventDefault();
+    console.log('clicou no confirmar');
+    window.alert("Seu saldo será atualizado em até 24h.")
   }
 
   return (
@@ -52,7 +57,7 @@ function DepositAndWithdraw () {
 
       <div className="cash-title">
         <h1>
-          Saldo em conta: R$ 999,99
+          {`Saldo em conta: R$ ${cash}`}
         </h1>
       </div>
 
@@ -67,7 +72,7 @@ function DepositAndWithdraw () {
         <button
           className="withdraw-btn"
           type="button"
-          onClick={changeWdButtonColor}
+          /* onClick={changeWdButtonColor} */
         >
           Retirada
         </button>
@@ -77,10 +82,9 @@ function DepositAndWithdraw () {
         <form className="form-cash">
           <label htmlFor="cash">
             <input
-              name="cash"
               placeholder="Informe o valor"
               onChange={e => handleInputChange(e)}
-              type="cash"
+              type="number"
             />
           </label>
 
