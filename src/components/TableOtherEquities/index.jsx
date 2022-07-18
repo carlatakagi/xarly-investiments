@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchApi } from '../../services/fetchApi';
 import './styles.css';
+
 
 function TableOtherEquities () {
   const [equities, setEquities] = useState([]);
@@ -8,36 +10,38 @@ function TableOtherEquities () {
   useEffect(() => {
     const fetchEquities = async () => {
       const result = await fetchApi();
-
       setEquities(result);
+      console.log(result[0].name);
+      console.log(result[0].quantity);
+      console.log(result[0].value);
     };
 
     fetchEquities();
-  }, []);
+  }, [setEquities]);
 
   return(
-    <div className="table">
+    <div className="table-other">
       <table>
         <thead>
           <tr>
-            <th>Ações disponíveis</th>
+            <th>Disponíveis</th>
           </tr>
           
           <tr>
             <th>Ação</th>
             <th>Quantidade</th>
-            <th>Valor</th>
+            <th>Valor (R$)</th>
             <th>Negociar</th>
           </tr>
         </thead>
 
         <tbody>
           <tr>
-            <td>Ação</td>
-            <td>Quantidade</td>
-            <td>Valor</td>
+            <td>acao</td>
+            <td>quant</td>
+            <td>preço</td>
             <td>
-              <button>Compra</button>
+              <Link to={'/purchaseandsale'}>Comprar</Link>
             </td>
           </tr>
         </tbody>

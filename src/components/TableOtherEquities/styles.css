@@ -1,0 +1,43 @@
+.table-other {
+  display: flex;
+  font-size: 2.5rem;
+  height: 50vh;
+
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.table-other table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.table-other table, thead, td, th {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+@media (max-width: 573px) {
+  .table-other table {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .table-other table {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 391px) {
+  .table-other table {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 391px) {
+  .table-other table {
+    font-size: 1rem;
+  }
+}
