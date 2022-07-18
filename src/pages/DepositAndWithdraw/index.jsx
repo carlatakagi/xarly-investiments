@@ -91,7 +91,7 @@ function DepositAndWithdraw () {
           <button
             disabled={buttonBackDisabled}
             onClick={handleClickReturn}
-            type="button"  
+            type="submit"  
           >
             Voltar
           </button>
