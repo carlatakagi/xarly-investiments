@@ -1,18 +1,41 @@
 .header {
   align-items: center;
-  background-color: #9602f8;
+  background-color: #ffe100;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-end;
-  padding: 40px;
+  padding: 20px;
   width: 100%;
 }
 
 .header h3 {
-  background-color: rgba(255, 255, 255, 0.438);
-  border: 1px solid rgb(23, 19, 19);
+  background-color: rgba(11, 11, 11, 0.259);
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 5px;
   font-size: 2rem;
   padding: 10px;
+}
+
+.header h3:hover {
+  filter: brightness(0.9);
+}
+
+@media (max-width: 573px) {
+  .header h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 391px) {
+  .header h3 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .header h3 {
+    font-size: 1.5rem;
+    padding: 5px;
+  }
 }
