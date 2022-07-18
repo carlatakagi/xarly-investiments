@@ -27,13 +27,15 @@ function Equities () {
       <TableMyEquities />
       <TableOtherEquities />
 
-      <button
-        type="submit"
-        disabled={false}
-        onClick={handleClick}
-      >
-        Depósito/ Saque
-      </button>
+      <div className="title-equities-button">
+        <button
+          type="submit"
+          disabled={false}
+          onClick={handleClick}
+        >
+          Depósito/ Saque
+        </button>
+      </div>
     </div>
   )
 }
