@@ -9,10 +9,6 @@ function TablePurchaseAndSale () {
       <table>
         <thead>
           <tr>
-            <th>Minhas ações</th>
-          </tr>
-          
-          <tr>
             <th>Ação</th>
             <th>Quantidade</th>
             <th>Valor (R$)</th>
