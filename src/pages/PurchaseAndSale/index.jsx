@@ -23,7 +23,7 @@ function PurchaseAndSale () {
       <Header />
       
       <div className="title-purchaseandsale">
-        <h1>Negociações</h1>
+        <h1>Comprar e Vender Ações</h1>
       </div>
 
       <TablePurchaseAndSale />
