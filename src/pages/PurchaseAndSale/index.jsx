@@ -12,6 +12,10 @@ function PurchaseAndSale () {
     setValue(e.target.value);
   }
 
+  const handleChangeColor = (e) => {
+    
+  }
+
   const handleClickReturn = (e) => {
     e.preventDefault();
     navigate('/equities');
