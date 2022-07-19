@@ -5,6 +5,9 @@ import './styles.css';
 function TableMyEquities () {
   const navigate = useNavigate();
 
+  /* const {saleEquities} = useEquitiesContext(EquitiesContext); */
+
+
   const handleClick = (e) => {
     e.preventDefault();
     navigate('/purchaseandsale');
