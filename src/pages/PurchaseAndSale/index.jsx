@@ -16,9 +16,7 @@ function PurchaseAndSale () {
     const purchaseBtn = document.querySelector('.purchase-btn');
     const saleBtn = document.querySelector('.sale-btn');
 
-    if(purchaseBtn.style.backgroundColor === '#0062ff') {
-      
-    }
+    if(purchaseBtn.style.backgroundColor === #0062ff)
   } */
 
   const handleClickReturn = (e) => {
