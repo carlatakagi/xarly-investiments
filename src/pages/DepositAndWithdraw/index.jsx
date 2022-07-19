@@ -10,35 +10,44 @@ function DepositAndWithdraw () {
   const [buttonBackDisabled, isButtonBackDisabled] = useState(false);
 
   const handleInputChange = (e) => {
-    // setCash(e.target.value);
+    setCash(cash - e.target.value);
     isButtonConfirmDisabled(false);
   }
 
   const changeDepButtonColor = () => {
     const depositButton = document.querySelector('.deposit-btn');
-    //const withdrawButton = document.querySelector('.withdraw-btn');
-    const button = document.querySelector('button');
+    const withdrawButton = document.querySelector('.withdraw-btn');
 
-    button.addEventListener('click', () => {
-      console.log('clicou no deposito');
+    depositButton.addEventListener('click', () => {
+      withdrawButton.style.background = '#ffe100';
 
-      depositButton.style.backgroundColor = 'green';
+      if(depositButton.style.background === 'green') {
+        depositButton.style.background = '#ffe100';
+      } else {
+        depositButton.style.background = 'green';
+      }
     })
-  
+    console.log('clicou no deposito', depositButton.style.backgroundColor);
+
   }
 
-  /* const changeWdButtonColor = () => {
-    const depositButton = document.querySelector('.deposit-btn');
+  const changeWdButtonColor = () => {
     const withdrawButton = document.querySelector('.withdraw-btn');
-    const button = document.querySelector('button');
+    const depositButton = document.querySelector('.deposit-btn');
 
-    button.addEventListener('click', () => {
-      console.log('clicou no retirada');
+    withdrawButton.addEventListener('click', () => {
       depositButton.style.background = '#ffe100';
-      withdrawButton.style.background = 'red';
 
-    })    
-  } */
+      if(withdrawButton.style.background === 'red') {
+        withdrawButton.style.background = '#ffe100';
+      } else {
+        withdrawButton.style.background = 'red';
+      }
+    })
+
+    console.log('clicou no withdraw', withdrawButton.style.background);
+
+  }
 
   const handleClickReturn = (e) => {
     e.preventDefault();
@@ -47,7 +56,6 @@ function DepositAndWithdraw () {
 
   const handleClickConfirm = (e) => {
     e.preventDefault();
-    console.log('clicou no confirmar');
     window.alert("Seu saldo será atualizado em até 24h.")
   }
 
@@ -63,6 +71,7 @@ function DepositAndWithdraw () {
 
       <div className="button-container">
         <button
+          selected
           className="deposit-btn"
           type="button"
           onClick={changeDepButtonColor}
@@ -72,7 +81,7 @@ function DepositAndWithdraw () {
         <button
           className="withdraw-btn"
           type="button"
-          /* onClick={changeWdButtonColor} */
+          onClick={changeWdButtonColor}
         >
           Retirada
         </button>
