@@ -12,8 +12,7 @@ function TablePurchaseAndSale () {
             <th>Ação</th>
             <th>Quantidade</th>
             <th>Valor (R$)</th>
-            <th>Negociar</th>
-          </tr>
+           </tr>
         </thead>
 
         <tbody>
@@ -21,9 +20,6 @@ function TablePurchaseAndSale () {
             <td>WEGE3</td>
             <td>1</td>
             <td>26.55</td>
-            <td>
-              <Link to={'/purchaseandsale'}>Comprar/ Vender</Link>
-            </td>
           </tr>
         </tbody>
       </table>
