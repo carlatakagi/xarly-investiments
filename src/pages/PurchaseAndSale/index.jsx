@@ -12,9 +12,14 @@ function PurchaseAndSale () {
     setValue(e.target.value);
   }
 
-  const handleChangeColor = (e) => {
-    
-  }
+  /* const handleChangeColor = (e) => {
+    const purchaseBtn = document.querySelector('.purchase-btn');
+    const saleBtn = document.querySelector('.sale-btn');
+
+    if(purchaseBtn.style.backgroundColor === '#0062ff') {
+      
+    }
+  } */
 
   const handleClickReturn = (e) => {
     e.preventDefault();
@@ -42,6 +47,7 @@ function PurchaseAndSale () {
           <div className="input-sale">
 
             <button
+              className="purchase-btn"
               type="button"
               onClick={console.log('clicou no botao comprar valor')}
             >
@@ -59,6 +65,7 @@ function PurchaseAndSale () {
 
           <div className="input-purchase">
             <button
+              className="sale-btn"
               type="button"
               onClick={console.log('clicou no botao vender valor')}
             >
