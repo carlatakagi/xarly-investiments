@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { fetchApi } from '../../services/fetchApi';
+import EquitiesContext from '../../context/EquitiesContext';
+import { useEquitiesContext } from '../../context/EquitiesProvider';
+//import { fetchApi } from '../../services/fetchApi';
 import './styles.css';
 
 
 function TableOtherEquities () {
-  const [equities, setEquities] = useState([]);
+  const {saleEquities} = useEquitiesContext(EquitiesContext);
+  console.log(saleEquities);
+  /*
 
   useEffect(() => {
     const fetchEquities = async () => {
@@ -17,7 +21,7 @@ function TableOtherEquities () {
     };
 
     fetchEquities();
-  }, [setEquities]);
+  }, []); */
 
   return(
     <div className="table-other">
@@ -36,10 +40,20 @@ function TableOtherEquities () {
         </thead>
 
         <tbody>
+          {/* {saleEquities.map((equity, index) => {
+            <tr>
+            <td>{equity[index].name}</td>
+            <td>{equity[index].quantity}</td>
+            <td>{equity[index].value}</td>
+            <td>
+              <Link to={'/purchaseandsale'}>Comprar</Link>
+            </td>
+          </tr>
+          })} */}
           <tr>
-            <td>acao</td>
-            <td>quant</td>
-            <td>preço</td>
+            <td>{saleEquities[0].name}</td>
+            <td>quantity</td>
+            <td>valor</td>
             <td>
               <Link to={'/purchaseandsale'}>Comprar</Link>
             </td>
