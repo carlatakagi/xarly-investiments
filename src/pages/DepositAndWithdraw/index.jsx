@@ -5,12 +5,24 @@ import './styles.css';
 
 function DepositAndWithdraw () {
   const navigate = useNavigate();
-  const [cash, setCash] = useState(999.99);
+  const [cash, setCash] = useState(999);
   const [buttonConfirmDisabled, isButtonConfirmDisabled] = useState(true);
   const [buttonBackDisabled, isButtonBackDisabled] = useState(false);
 
+  // nao funciona
   const handleInputChange = (e) => {
-    setCash(cash - e.target.value);
+    const depositButton = document.querySelector('.deposit-btn');
+    const withdrawButton = document.querySelector('.withdraw-btn');
+
+    if(depositButton.style.background === 'green') {
+      setCash(cash + e.target.value);
+    }
+
+    if(withdrawButton.style.background === 'red') {
+      setCash(cash - e.target.value);
+    }
+
+    setCash(cash);
     isButtonConfirmDisabled(false);
   }
 
