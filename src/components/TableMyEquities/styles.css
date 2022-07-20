@@ -6,10 +6,12 @@
   margin: auto;
   padding: 20px;
   text-align: center;
+  width: 100%;
 }
 
 .table table {
   table-layout: fixed;
+  margin: 10px;
   width: 100%;
 }
 
@@ -31,11 +33,23 @@
 
   text-align: center;
   transition: filter 0.3s;
-  width: 50%;
 }
 
 .table button:hover {
   filter: brightness(0.9);
+}
+
+@media (max-width: 642px) {
+  .table {
+    display: flex;
+    font-size: 2.5rem;
+    height: 50vh;
+  
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 @media (max-width: 573px) {
@@ -51,20 +65,87 @@
   }
 }
 
+@media (max-width: 508px) {
+  .table table {
+    font-size: 2rem;
+  }
+
+  .table button {
+    font-size: 1.5rem;
+    margin: 7px;
+    padding: 10px;
+    border-radius: 12px;
+  }
+}
+
 @media (max-width: 470px) {
   .table table {
     font-size: 1.5rem;
   }
-}
 
-@media (max-width: 391px) {
-  .table table {
+  .table button {
     font-size: 1.25rem;
+    margin: 6px;
+    padding: 9px;
+    border-radius: 12px;
+  }
+
+  .table {
+    display: flex;
+    font-size: 1.5rem;
+    height: 40vh;
+  
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 430px) {
+  .table table {
+    font-size: 1.5rem;
+  }
+
+  .table button {
+    font-size: 1.15rem;
+    margin: 4px;
+    padding: 8px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 402px) {
+  .table button {
+    font-size: 1.15rem;
+    margin: 4px;
+    padding: 6.5px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 388px) {
+  .table table {
+    font-size: 1.25rem;
+  }
+
+  .table button {
+    font-size: 1.15rem;
+    margin: 4px;
+    padding: 5.5px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 375px) {
   .table table {
     font-size: 1rem;
+  }
+
+  .table button {
+    font-size: 1rem;
+    margin: 5px;
+    padding: 4.5px;
+    border-radius: 12px;
   }
 }
