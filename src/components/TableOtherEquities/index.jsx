@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import EquitiesContext from '../../context/EquitiesContext';
 import { useEquitiesContext } from '../../context/EquitiesProvider';
 //import { fetchApi } from '../../services/fetchApi';
@@ -7,59 +7,79 @@ import './styles.css';
 
 
 function TableOtherEquities () {
-  const {saleEquities} = useEquitiesContext(EquitiesContext);
-  console.log(saleEquities);
-  /*
+  const navigate = useNavigate();
+  
+  const {allEquities,
+    setAllEquities,} = useEquitiesContext(EquitiesContext);
+  console.log(allEquities);
+  
+  /* const fetchEquities = async () => {
+    const result = await fetchApi();
+    setAllEquities(result);
+    console.log(result[0].name);
+    console.log(result[0].quantity);
+    console.log(result[0].value);
+  };
 
   useEffect(() => {
-    const fetchEquities = async () => {
-      const result = await fetchApi();
-      setEquities(result);
-      console.log(result[0].name);
-      console.log(result[0].quantity);
-      console.log(result[0].value);
-    };
-
     fetchEquities();
-  }, []); */
+  }, [setAllEquities]); */
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    navigate('/purchaseandsale');
+  }
 
   return(
     <div className="table-other">
-      <table>
-        <thead>
-          <tr>
-            <th>Disponíveis</th>
-          </tr>
-          
-          <tr>
-            <th>Ação</th>
-            <th>Quantidade</th>
-            <th>Valor (R$)</th>
-            <th>Negociar</th>
-          </tr>
-        </thead>
+      {
+            allEquities.length > 0
+            ?
+            <table>
+              <thead>
+                <tr>
+                  <th>Disponíveis</th>
+                </tr>
 
-        <tbody>
-          {/* {saleEquities.map((equity, index) => {
-            <tr>
-            <td>{equity[index].name}</td>
-            <td>{equity[index].quantity}</td>
-            <td>{equity[index].value}</td>
-            <td>
-              <Link to={'/purchaseandsale'}>Comprar</Link>
-            </td>
-          </tr>
-          })} */}
-          <tr>
-            <td>{saleEquities[0].name}</td>
-            <td>quantity</td>
-            <td>valor</td>
-            <td>
-              <Link to={'/purchaseandsale'}>Comprar</Link>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                <tr>
+                  <th>Ação</th>
+                  <th>Quantidade</th>
+                  <th>Valor (R$)</th>
+                  <th>Negociar</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {/* {allEquities.map((equity, index) => {
+                  <tr>
+                  <td>{equity[index].name}</td>
+                  <td>{equity[index].quantity}</td>
+                  <td>{equity[index].value}</td>
+                  <td>
+                    <Link to={'/purchaseandsale'}>Comprar</Link>
+                  </td>
+                </tr>
+                })} */}
+
+                  <tr>
+                    <td>{allEquities[0].name}</td>
+                    <td>{allEquities[0].quantity}</td>
+                    <td>{allEquities[0].value}</td>
+                    <td>
+                      <button
+                        type="submit"
+                        onClick={handleClick}
+                      >
+                        Comprar/ Vender
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              :
+              <h2>Carregando...</h2>
+      }
+      
     </div>
   );
 }
