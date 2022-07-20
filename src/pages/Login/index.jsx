@@ -26,7 +26,6 @@ function Login() {
     setPassword(e.target.value);
   }
 
-  // falta salvar data e hora de acesso
   const handleClick = (e) => {
     e.preventDefault();
     console.log('clicou');
