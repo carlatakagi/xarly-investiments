@@ -15,7 +15,7 @@ function Equities () {
   };
 
   return (
-    <div>
+    <div className="container-equities">
       <Header />
 
       <div className="title-equities">
