@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 import './styles.css';
 
 function TableMyEquities () {
   const navigate = useNavigate();
 
-  /* const {saleEquities} = useEquitiesContext(EquitiesContext); */
-
+  /* const {myEquities, setMyEquities} = useEquitiesContext(EquitiesContext); */
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -48,7 +48,12 @@ function TableMyEquities () {
             <td>1</td>
             <td>6.59</td>
             <td>
-              <Link to={'/purchaseandsale'}>Comprar/ Vender</Link>
+              <button
+                type="submit"
+                onClick={handleClick}
+              >
+                Comprar/ Vender
+              </button>
             </td>
           </tr>
         </tbody>
