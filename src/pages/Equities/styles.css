@@ -1,3 +1,8 @@
+.container-equities {
+  text-align: center;
+  width: 100%;
+}
+
 .title-equities {
   display: flex;
   justify-content: center;
