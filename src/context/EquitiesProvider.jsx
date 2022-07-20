@@ -12,6 +12,8 @@ function EquitiesProvider({children}) {
     value: 26.55,
   }]);
 
+  const [cash, setCash] = useState(999.99);
+
   const getEquitiesFromApi = () => {
     fetchApi()
       .then((response) => {
@@ -30,7 +32,9 @@ function EquitiesProvider({children}) {
     saleEquities,
     setSaleEquities,
     myEquities,
-    setMyEquities
+    setMyEquities,
+    cash,
+    setCash
   }
 
   return (

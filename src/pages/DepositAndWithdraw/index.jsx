@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import EquitiesContext from '../../context/EquitiesContext';
+import { useEquitiesContext } from '../../context/EquitiesProvider';
+
 import Header from '../../components/Header/index';
 import './styles.css';
 
 function DepositAndWithdraw () {
   const navigate = useNavigate();
-  const [cash, setCash] = useState(999);
+  const {cash, setCash} = useEquitiesContext(EquitiesContext);
+
   const [buttonConfirmDisabled, isButtonConfirmDisabled] = useState(true);
-  const [buttonBackDisabled, isButtonBackDisabled] = useState(false);
 
   // nao funciona
   const handleInputChange = (e) => {
@@ -15,14 +19,14 @@ function DepositAndWithdraw () {
     const withdrawButton = document.querySelector('.withdraw-btn');
 
     if(depositButton.style.background === 'green') {
-      setCash(cash + e.target.value);
+      setCash(+cash + e.target.value);
     }
 
     if(withdrawButton.style.background === 'red') {
-      setCash(cash - e.target.value);
+      setCash(+cash - e.target.value);
     }
 
-    setCash(cash);
+    //setCash(cash);
     isButtonConfirmDisabled(false);
   }
 
@@ -110,7 +114,6 @@ function DepositAndWithdraw () {
           </label>
 
           <button
-            disabled={buttonBackDisabled}
             onClick={handleClickReturn}
             type="submit"  
           >
