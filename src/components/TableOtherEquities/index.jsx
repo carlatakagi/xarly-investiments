@@ -56,15 +56,33 @@ function TableOtherEquities () {
                   <td>{equity[index].quantity}</td>
                   <td>{equity[index].value}</td>
                   <td>
-                    <Link to={'/purchaseandsale'}>Comprar</Link>
+                    <button
+                        type="submit"
+                        onClick={handleClick}
+                      >
+                        Comprar/ Vender
+                      </button>
                   </td>
                 </tr>
-                })} */}
-
+                })}
+ */}
                   <tr>
                     <td>{allEquities[0].name}</td>
                     <td>{allEquities[0].quantity}</td>
                     <td>{allEquities[0].value}</td>
+                    <td>
+                      <button
+                        type="submit"
+                        onClick={handleClick}
+                      >
+                        Comprar/ Vender
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>{allEquities[1].name}</td>
+                    <td>{allEquities[1].quantity}</td>
+                    <td>{allEquities[1].value}</td>
                     <td>
                       <button
                         type="submit"
