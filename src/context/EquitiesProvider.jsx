@@ -13,10 +13,12 @@ function EquitiesProvider({children}) {
       .then((response) => {
         setAllEquities(response);
         setSaleEquities(response);
+        console.log(saleEquities);
       });
   };
 
-  useEffect(() => { getEquitiesFromApi(); }, []);
+  //useEffect(() => { getEquitiesFromApi(); }, []);
+  useEffect(() => { getEquitiesFromApi(); }, [setAllEquities]);
 
   const value = {
     allEquities,
