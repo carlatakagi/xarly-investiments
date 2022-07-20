@@ -6,7 +6,11 @@ import { fetchApi } from '../services/fetchApi';
 function EquitiesProvider({children}) {
   const [allEquities, setAllEquities] = useState([]);
   const [saleEquities, setSaleEquities] = useState([]);
-  const [myEquities, setMyEquities] = useState([]);
+  const [myEquities, setMyEquities] = useState([{
+    name: 'WEGE3',
+    quantity: 1,
+    value: 26.55,
+  }]);
 
   const getEquitiesFromApi = () => {
     fetchApi()
