@@ -58,7 +58,7 @@
   width: 50%;
 }
 
-.input-sale button {
+.input-sale span {
   background: #0062ff;
   border: 1px rgba(0, 0, 0, 0.389) solid;
   border-radius: 5px;
@@ -71,7 +71,7 @@
   padding: 10px;
 }
 
-.input-purchase button {
+.input-purchase span {
   background: #20d12f;
   border: 1px rgba(0, 0, 0, 0.389) solid;
   border-radius: 5px;
@@ -97,8 +97,8 @@
     border-radius: 14px;
   }
 
-  .input-purchase .input-sale button {
-    font-size: 1.25rem;
+  .input-purchase .input-sale span {
+    font-size: 1.15rem;
     margin: 8px;
     padding: 13px;
     border-radius: 14px;
@@ -113,7 +113,7 @@
     border-radius: 10px;
   }
 
-  .input-purchase .input-sale button {
+  .input-purchase .input-sale span {
     font-size: 1.1rem;
     margin: 8px;
     padding: 10px;
@@ -122,7 +122,7 @@
 }
 
 @media (max-width: 320px) {
-  .input-purchase .input-sale button {
+  .input-purchase .input-sale span {
     font-size: 0.5rem;
     margin: 8px;
     padding: 13px;
