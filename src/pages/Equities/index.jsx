@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/index';
 import TableMyEquities from '../../components/TableMyEquities';
-import TableOtherEquities from '../../components/TableOtherEquities';
+import TableSaleEquities from '../../components/TableSaleEquities';
 import './styles.css';
 
 function Equities () {
@@ -25,7 +25,7 @@ function Equities () {
       </div>
 
       <TableMyEquities />
-      <TableOtherEquities />
+      <TableSaleEquities />
 
       <div className="title-equities-button">
         <button
