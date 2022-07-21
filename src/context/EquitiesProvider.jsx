@@ -1,34 +1,29 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import EquitiesContext from './EquitiesContext';
-import { fetchApi } from '../services/fetchApi';
+import { fetchEquitiesFromApi } from '../services/fetchApi';
 
 function EquitiesProvider({children}) {
-  const [allEquities, setAllEquities] = useState([]);
   const [saleEquities, setSaleEquities] = useState([]);
-  const [myEquities, setMyEquities] = useState([{
-    name: 'WEGE3',
-    quantity: 1,
-    value: 26.55,
-  }]);
+  const [myEquities, setMyEquities] = useState([]);
 
   const [cash, setCash] = useState(999.99);
 
   const getEquitiesFromApi = () => {
-    fetchApi()
+    fetchEquitiesFromApi(1)
       .then((response) => {
-        setAllEquities(response);
-        setSaleEquities(response);
-        console.log(saleEquities);
+        const myEquitiesResponse = response.filter((equity) => equity.QtdeAtivo > 0);
+        setMyEquities(myEquitiesResponse);
+
+        const saleEquitiesSale = response.filter((equity) => equity.QtdeAtivo === 0);
+        setSaleEquities(saleEquitiesSale);
       });
   };
 
   //useEffect(() => { getEquitiesFromApi(); }, []);
-  useEffect(() => { getEquitiesFromApi(); }, [setAllEquities]);
+  useEffect(() => { getEquitiesFromApi(); }, []);
 
   const value = {
-    allEquities,
-    setAllEquities,
     saleEquities,
     setSaleEquities,
     myEquities,
