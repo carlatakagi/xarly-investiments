@@ -15,7 +15,7 @@ function App() {
           <Route path="/*" element={<Login />} />
           <Route path="/equities" element={<Equities />} />
           <Route path="/depositandwithdraw" element={<DepositAndWithdraw />} />
-          <Route path="/purchaseandsale" element={<PurchaseAndSale />} />
+          <Route path="/purchaseandsale/:CodAtivo" element={<PurchaseAndSale />} />
         </Routes>
       </BrowserRouter>
     </EquitiesProvider>
