@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useEquitiesContext } from '../../context/EquitiesProvider';
 import EquitiesContext from '../../context/EquitiesContext';
 
 import './styles.css';
 
-const MAX_EQUITIES = 6;
-
 function TableMyEquities () {
   const navigate = useNavigate();
 
-  const {myEquities, setMyEquities} = useEquitiesContext(EquitiesContext);
-  console.log(myEquities)
+  const {myEquities} = useEquitiesContext(EquitiesContext);
 
-  const handleClick = (e) => {
+  const handleClick = (e, codAtivo) => {
+    console.log(e);
     e.preventDefault();
-    navigate('/purchaseandsale');
+
+    const isSelling = e.target.innerText === 'V';
+    navigate(`/purchaseandsale/${codAtivo}`, {state: {isSelling}});
   }
 
   return(
@@ -38,50 +38,29 @@ function TableMyEquities () {
             </thead>
 
             <tbody>
-              {/* {
-                myEquities.map((equity, index) => {
-
-                  <tr>
-                    <td>{equity[index].name}</td>
-                    <td>{equity[index].quantity}</td>
-                    <td>{equity[index].value}</td>
+              {
+                myEquities.map((equity) => (
+                  <tr key={equity.CodAtivo}>
+                    <td>{equity.CodAtivo}</td>
+                    <td>{equity.QtdeAtivo}</td>
+                    <td>{equity.Valor}</td>
                     <td>
                     <button
-                    type="submit"
-                    onClick={handleClick}
+                      type="submit"
+                      onClick={(e) => handleClick(e, equity.CodAtivo)}
                     >
-                      Comprar/ Vender
+                      C
+                    </button>
+                    <button
+                      type="submit"
+                      onClick={(e) => handleClick(e, equity.CodAtivo)}
+                    >
+                      V
                     </button>
                     </td>
                   </tr>
-                })
-              } */}
-              <tr>
-                <td>{myEquities[0].name}</td>
-                <td>{myEquities[0].quantity}</td>
-                <td>{myEquities[0].value}</td>
-                <td>
-                  <button
-                  type="submit"
-                  onClick={handleClick}
-                  >
-                    Comprar/ Vender
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>GRND33</td>
-                <td>1</td>
-                <td>6.59</td>
-                <td>
-                  <button
-                    type="submit"
-                    onClick={handleClick}
-                  >
-                    Comprar/ Vender
-                  </button>
-                </td>
-              </tr>
+                ))
+              }
             </tbody>
           </table>
           :
