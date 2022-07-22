@@ -34,6 +34,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)**
 -   **[JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)**
 -   **[React](https://pt-br.reactjs.org/)**
+-   **[Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html)**
 
 ---
 ## 🚀 Como executar o projeto
@@ -66,16 +67,16 @@ $ npm run dev
 
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/carlatakagi/instagram-page?color=%2304D361">
-  
+
   <a href="https://github.com/carlatakagi/instagram-page/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/carlatakagi/instagram-page">
   </a>
-    
+
   <a href="https://github.com/carlatakagi/instagram-page/stargazers">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/carlatakagi/instagram-page?style=social">
 
   </a>
- 
+
 </p> -->
 
 
