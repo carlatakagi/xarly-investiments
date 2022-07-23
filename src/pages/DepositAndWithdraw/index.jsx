@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import EquitiesContext from '../../context/EquitiesContext';
-import { useEquitiesContext } from '../../context/EquitiesProvider';
-
 import Header from '../../components/Header/index';
 import './styles.css';
 
 function DepositAndWithdraw () {
   const navigate = useNavigate();
-  const {cash, setCash} = useEquitiesContext(EquitiesContext);
+  const [cash, setCash] = useState(999.99);
 
-  const [buttonConfirmDisabled, isButtonConfirmDisabled] = useState(true);
+  const [buttonConfirmDisabled, setButtonConfirmDisabled] = useState(true);
 
   // nao funciona
   const handleInputChange = (e) => {
@@ -19,15 +16,15 @@ function DepositAndWithdraw () {
     const withdrawButton = document.querySelector('.withdraw-btn');
 
     if(depositButton.style.background === 'green') {
-      setCash(+cash + e.target.value);
+      setCash(cash + Number(e.target.value));
     }
 
     if(withdrawButton.style.background === 'red') {
-      setCash(+cash - e.target.value);
+      setCash(cash - Number(e.target.value));
     }
 
     //setCash(cash);
-    isButtonConfirmDisabled(false);
+    setButtonConfirmDisabled(false);
   }
 
   const changeDepButtonColor = () => {
@@ -42,9 +39,7 @@ function DepositAndWithdraw () {
       } else {
         depositButton.style.background = 'green';
       }
-    })
-    console.log('clicou no deposito', depositButton.style.backgroundColor);
-
+    });
   }
 
   const changeWdButtonColor = () => {
@@ -59,10 +54,7 @@ function DepositAndWithdraw () {
       } else {
         withdrawButton.style.background = 'red';
       }
-    })
-
-    console.log('clicou no withdraw', withdrawButton.style.background);
-
+    });
   }
 
   const handleClickReturn = (e) => {
@@ -77,7 +69,7 @@ function DepositAndWithdraw () {
 
   return (
     <div>
-      <Header /> 
+      <Header />
 
       <div className="cash-title">
         <h1>
@@ -115,7 +107,7 @@ function DepositAndWithdraw () {
 
           <button
             onClick={handleClickReturn}
-            type="submit"  
+            type="submit"
           >
             Voltar
           </button>
@@ -123,7 +115,7 @@ function DepositAndWithdraw () {
           <button
             disabled={buttonConfirmDisabled}
             onClick={handleClickConfirm}
-            type="button"  
+            type="button"
           >
             Confirmar
           </button>
