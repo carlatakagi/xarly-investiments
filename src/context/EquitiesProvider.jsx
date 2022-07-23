@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import EquitiesContext from './EquitiesContext';
-import { fetchEquitiesFromApi } from '../services/fetchApi';
+import { fetchEquitiesByClientId } from '../services/fetchApi';
 
 function EquitiesProvider({children}) {
   const [saleEquities, setSaleEquities] = useState([]);
@@ -9,8 +9,8 @@ function EquitiesProvider({children}) {
 
   const [cash, setCash] = useState(999.99);
 
-  const getEquitiesFromApi = () => {
-    fetchEquitiesFromApi(1)
+  const getEquitiesByClientId = () => {
+    fetchEquitiesByClientId(1)
       .then((response) => {
         const myEquitiesResponse = response.filter((equity) => equity.QtdeAtivo > 0);
         setMyEquities(myEquitiesResponse);
@@ -21,7 +21,7 @@ function EquitiesProvider({children}) {
   };
 
   //useEffect(() => { getEquitiesFromApi(); }, []);
-  useEffect(() => { getEquitiesFromApi(); }, []);
+  useEffect(() => { getEquitiesByClientId(); }, []);
 
   const value = {
     saleEquities,
@@ -52,4 +52,4 @@ EquitiesProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default EquitiesProvider; 
+export default EquitiesProvider;
