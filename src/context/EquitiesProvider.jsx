@@ -7,20 +7,17 @@ function EquitiesProvider({children}) {
   const [saleEquities, setSaleEquities] = useState([]);
   const [myEquities, setMyEquities] = useState([]);
 
-  const [cash, setCash] = useState(999.99);
-
   const getEquitiesByClientId = () => {
-    fetchEquitiesByClientId(1)
+    fetchEquitiesByClientId()
       .then((response) => {
-        const myEquitiesResponse = response.filter((equity) => equity.QtdeAtivo > 0);
+        const myEquitiesResponse = response.filter((equity) => equity.CodCliente);
         setMyEquities(myEquitiesResponse);
 
-        const saleEquitiesSale = response.filter((equity) => equity.QtdeAtivo === 0);
+        const saleEquitiesSale = response.filter((equity) => equity.QtdeAtivo > 0 && !equity.CodCliente);
         setSaleEquities(saleEquitiesSale);
       });
   };
 
-  //useEffect(() => { getEquitiesFromApi(); }, []);
   useEffect(() => { getEquitiesByClientId(); }, []);
 
   const value = {
@@ -28,8 +25,6 @@ function EquitiesProvider({children}) {
     setSaleEquities,
     myEquities,
     setMyEquities,
-    cash,
-    setCash
   }
 
   return (
