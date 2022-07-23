@@ -23,7 +23,9 @@ Tabela de conteúdos
 
 ## 💻 Sobre o projeto
 
-  Aplicação desenvolvida em React Hooks, que simula um aplicativo de compra de ações da bolsa de valores.
+  Aplicação que simula um aplicativo de compra e venda de ações da bolsa de valores
+  <br>
+  Desenvolvida em React com Hooks,
 
 ---
 ## 🛠 Tecnologias
