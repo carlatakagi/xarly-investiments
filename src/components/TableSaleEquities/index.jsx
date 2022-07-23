@@ -7,12 +7,12 @@ import './styles.css';
 
 function TableSaleEquities () {
   const navigate = useNavigate();
-  
+
   const {saleEquities} = useEquitiesContext(EquitiesContext);
 
   const handleClick = (e, codAtivo) => {
     e.preventDefault();
-    
+
     const isSelling = e.target.innerText === 'V';
     navigate(`/purchaseandsale/${codAtivo}`, {state: {isSelling}});
   }
@@ -57,7 +57,7 @@ function TableSaleEquities () {
               :
               <h2>Carregando...</h2>
       }
-      
+
     </div>
   );
 }
