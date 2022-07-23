@@ -20,15 +20,15 @@ function TableMyEquities () {
 
   return(
     <div className="table">
-      { 
+      {
         myEquities.length > 0
-        ? 
+        ?
           <table>
             <thead>
               <tr>
                 <th>Minhas ações</th>
               </tr>
-              
+
               <tr>
                 <th>Ação</th>
                 <th>Quantidade</th>
@@ -64,7 +64,7 @@ function TableMyEquities () {
             </tbody>
           </table>
           :
-          <h2>Carregando...</h2>
+          <h3>Você ainda não possui ações.</h3>
       }
     </div>
   );
