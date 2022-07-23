@@ -1,4 +1,4 @@
-const baseURL = 'https://equities-api.herokuapp.com/';
+const baseURL = 'https://equities-api.herokuapp.com';
 
 export const fetchEquitiesByClientId = async (codCliente) => {
   const request = await fetch(`${baseURL}/client/ativos/${codCliente}`);
@@ -14,32 +14,53 @@ export const fetchEquityById = async (codAtivos) => {
   return result;
 }
 
-export const fetchBuyEquity = async () => {
-  const request = await fetch(`${baseURL}/assets/investimentos/comprar`);
-  const result = request.json();
+export const fetchBuyEquity = async (codCliente, codAtivo, qtdeAtivo) => {
+  let _data = {
+    codCliente, codAtivo, qtdeAtivo
+  }
+  console.log(_data);
+  fetch(`${baseURL}/assets/investimentos/comprar`, {
+    method: "POST",
+    body: JSON.stringify(_data),
+    headers: {"Content-type": "application/json; charset=UTF-8"}
+  })
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err));
 
-  return result;
 }
 
 export const fetchSellEquity = async () => {
-  const request = await fetch(`${baseURL}/assets/investimentos/vender`);
-  const result = request.json();
-
-  return result;
+  fetch(`${baseURL}/assets/investimentos/vender`, {
+    method: "POST",
+    body: JSON.stringify(),
+    headers: {"Content-type": "application/json; charset=UTF-8"}
+  })
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err));
 }
 
 export const fetchMakeDeposit = async () => {
-  const request = await fetch(`${baseURL}/conta/deposito`);
-  const result = request.json();
-
-  return result;
+  fetch(`${baseURL}/conta/deposito`, {
+    method: "POST",
+    body: JSON.stringify(),
+    headers: {"Content-type": "application/json; charset=UTF-8"}
+  })
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err));
 }
 
 export const fetchMakeWithdraw = async () => {
-  const request = await fetch(`${baseURL}/conta/saque`);
-  const result = request.json();
-
-  return result;
+  fetch(`${baseURL}/conta/saque`, {
+    method: "POST",
+    body: JSON.stringify(),
+    headers: {"Content-type": "application/json; charset=UTF-8"}
+  })
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err));
 }
 
 export const fetchClientAccount = async (codCliente) => {
