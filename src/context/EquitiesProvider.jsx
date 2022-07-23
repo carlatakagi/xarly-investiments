@@ -8,9 +8,9 @@ function EquitiesProvider({children}) {
   const [myEquities, setMyEquities] = useState([]);
 
   const getEquitiesByClientId = () => {
-    fetchEquitiesByClientId()
+    fetchEquitiesByClientId(1)
       .then((response) => {
-        const myEquitiesResponse = response.filter((equity) => equity.CodCliente);
+        const myEquitiesResponse = response.filter((equity) => equity.CodCliente && equity.QtdeAtivo > 0);
         setMyEquities(myEquitiesResponse);
 
         const saleEquitiesSale = response.filter((equity) => equity.QtdeAtivo > 0 && !equity.CodCliente);
@@ -18,7 +18,7 @@ function EquitiesProvider({children}) {
       });
   };
 
-  useEffect(() => { getEquitiesByClientId(); }, []);
+  useEffect(() => { getEquitiesByClientId(); }, [setMyEquities, setSaleEquities]);
 
   const value = {
     saleEquities,
