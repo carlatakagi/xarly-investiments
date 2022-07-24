@@ -25,7 +25,6 @@
 .title-equities-button {
   display: flex;
   justify-content: center;
-  margin-top: 120vh;
   padding: 10px;
 }
 
@@ -55,7 +54,6 @@
 
 @media (max-width: 663px) {
   .title-equities-button {
-    margin-top: 100vh;
     padding: 10px;
   }
 }
@@ -64,7 +62,6 @@
 @media (max-width: 620px) {
   .title-equities-button button {
     font-size: 1.75rem;
-    margin: 84px;
     padding: 20px;
   }
 }
@@ -72,7 +69,6 @@
 @media (max-width: 594px) {
   .title-equities-button button {
     font-size: 1.65rem;
-    margin: 84px;
     padding: 20px;
   }
 }
@@ -80,7 +76,6 @@
 @media (max-width: 573px) {
   .title-equities-button button {
     font-size: 1.5rem;
-    margin: 84px;
     padding: 18px;
   }
 }
@@ -96,14 +91,14 @@
 
 @media (max-width: 508px) {
   .title-equities-button {
-    margin-top: 90vh;
+    margin-top: 10vh;
     padding: 10px;
   }
 }
 
 @media (max-width: 470px) {
   .title-equities-button {
-    margin-top: 75vh;
+    margin-top: 10vh;
     padding: 10px;
   }
 }
@@ -111,37 +106,7 @@
 @media (max-width: 456px) {
   .title-equities-button button {
     font-size: 1.35rem;
-    margin: 74px;
-    padding: 18px;
-
     width: 40%;
-  }
-}
-
-@media (max-width: 430px) {
-  .title-equities-button {
-    margin-top: 65vh;
-    padding: 10px;
-  }
-}
-
-@media (max-width: 402px) {
-  .title-equities-button {
-    margin-top: 59vh;
-    padding: 10px;
-  }
-}
-
-@media (max-width: 391px) {
-  .title-equities-button button {
-    font-size: 1.45rem;
-  }
-}
-
-@media (max-width: 388px) {
-  .title-equities-button {
-    margin-top: 55vh;
-    padding: 10px;
   }
 }
 
@@ -151,8 +116,7 @@
   }
 
   .title-equities-button {
-    margin-top: 50vh;
-    padding: 10px;
+    margin-top: 10vh;
   }
 }
 
