@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useUserContext } from '../../shared/providers/UserProvider';
+
 import './styles.css';
 
 function Header() {
-  const [user, setUser] = useState('');
-
-  useEffect(() => {
-    const email = JSON.parse(localStorage.getItem('email'));
-
-    if(email) {
-      setUser(email);
-    }
-  }, []);
+  const { user } = useUserContext();
 
   return (
     <div className="header">
