@@ -20,7 +20,6 @@ function PurchaseAndSale () {
     fetchEquityById(CodAtivo)
       .then((response) => {
         setEquity(response);
-        console.log(CodAtivo);
       });
   };
 
@@ -28,13 +27,13 @@ function PurchaseAndSale () {
 
   const getSellEquities = () => fetchSellEquity({
     clientId: user.clientId,
-    CodAtivo,
+    equityId: CodAtivo,
     equityQuantity
   });
 
   const getBuyEquities = () => fetchBuyEquity({
     clientId: user.clientId,
-    CodAtivo,
+    equityId: CodAtivo,
     equityQuantity
   });
 
