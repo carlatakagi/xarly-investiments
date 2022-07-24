@@ -19,6 +19,7 @@ function DepositAndWithdraw () {
     fetchClientAccount(user.clientId)
       .then((response) => {
         const data = response.message ? 0.00 : response;
+        console.log(data);
         setCash(data.Saldo);
       });
   };
