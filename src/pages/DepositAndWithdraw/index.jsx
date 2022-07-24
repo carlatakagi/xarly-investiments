@@ -1,60 +1,75 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { fetchMakeDeposit, fetchMakeWithdraw, fetchClientAccount } from '../../shared/services/fetchApi';
+import { useUserContext } from '../../shared/providers/UserProvider';
 import Header from '../../components/Header/index';
 import './styles.css';
 
 function DepositAndWithdraw () {
   const navigate = useNavigate();
-  const [cash, setCash] = useState(999.99);
+  const { user } = useUserContext();
+
+  const [cash, setCash] = useState(0.00);
+  const [value, setValue] = useState(0);
+  const [action, setAction] = useState('');
 
   const [buttonConfirmDisabled, setButtonConfirmDisabled] = useState(true);
 
-  // nao funciona
+  const getClientAccount  = () => {
+    fetchClientAccount(user.clientId)
+      .then((response) => {
+        const data = response.message ? 0.00 : response;
+        setCash(data.Saldo);
+      });
+  };
+
+  const makeDeposit = async () => {
+    await fetchMakeDeposit({ clientId: user.clientId, value });
+  };
+
+  const makeWithdraw  = async () => {
+    await fetchMakeWithdraw({ clientId: user.clientId, value });
+  };
+
+  /* useEffect(() => {
+    getClientAccount();
+  }, []); */
+
   const handleInputChange = (e) => {
-    const depositButton = document.querySelector('.deposit-btn');
-    const withdrawButton = document.querySelector('.withdraw-btn');
-
-    if(depositButton.style.background === 'green') {
-      setCash(cash + Number(e.target.value));
-    }
-
-    if(withdrawButton.style.background === 'red') {
-      setCash(cash - Number(e.target.value));
-    }
-
-    //setCash(cash);
+    setValue(Number(e.target.value));
     setButtonConfirmDisabled(false);
   }
 
-  const changeDepButtonColor = () => {
+  const handleDepositButtonClick = () => {
+    setAction('DEPOSIT');
+
     const depositButton = document.querySelector('.deposit-btn');
     const withdrawButton = document.querySelector('.withdraw-btn');
 
-    depositButton.addEventListener('click', () => {
-      withdrawButton.style.background = '#ffe100';
+      withdrawButton.style.background = '#222222';
 
-      if(depositButton.style.background === 'green') {
-        depositButton.style.background = '#ffe100';
-      } else {
-        depositButton.style.background = 'green';
-      }
-    });
+    if (depositButton.style.background === 'green') {
+      depositButton.style.background = '#222222';
+    } else {
+      depositButton.style.background = 'green';
+    }
+
+    getClientAccount();
   }
 
-  const changeWdButtonColor = () => {
+  const handleWithdrawButtonClick = () => {
+    setAction('WITHDRAW');
+
     const withdrawButton = document.querySelector('.withdraw-btn');
     const depositButton = document.querySelector('.deposit-btn');
 
-    withdrawButton.addEventListener('click', () => {
-      depositButton.style.background = '#ffe100';
+    depositButton.style.background = '#222222';
 
-      if(withdrawButton.style.background === 'red') {
-        withdrawButton.style.background = '#ffe100';
-      } else {
-        withdrawButton.style.background = 'red';
-      }
-    });
+    if (withdrawButton.style.background === 'red') {
+      withdrawButton.style.background = '#222222';
+    } else {
+      withdrawButton.style.background = 'red';
+    }
   }
 
   const handleClickReturn = (e) => {
@@ -62,9 +77,13 @@ function DepositAndWithdraw () {
     navigate('/equities');
   }
 
-  const handleClickConfirm = (e) => {
+  const handleClickConfirm = async (e) => {
     e.preventDefault();
-    window.alert("Seu saldo será atualizado em até 24h.")
+
+    window.alert("Seu saldo será atualizado em até 24h.");
+
+    action === 'DEPOSIT' ? await makeDeposit() : await makeWithdraw();
+    getClientAccount();
   }
 
   return (
@@ -77,53 +96,52 @@ function DepositAndWithdraw () {
         </h1>
       </div>
 
-      <div className="button-container">
+      <form className="form-cash">
+        <span>Informe o valor do depósito ou retirada</span>
+        <label htmlFor="cash">
+          <input
+            placeholder="R$ 0.00"
+            onChange={e => handleInputChange(e)}
+            type="number"
+          />
+        </label>
+      </form>
+
+      <div className="button-primary-actions">
         <button
-          selected
           className="deposit-btn"
           type="button"
-          onClick={changeDepButtonColor}
+          onClick={handleDepositButtonClick}
         >
           Depósito
         </button>
         <button
           className="withdraw-btn"
           type="button"
-          onClick={changeWdButtonColor}
+          onClick={handleWithdrawButtonClick}
         >
           Retirada
         </button>
       </div>
 
-      <div>
-        <form className="form-cash">
-          <label htmlFor="cash">
-            <input
-              placeholder="Informe o valor"
-              onChange={e => handleInputChange(e)}
-              type="number"
-            />
-          </label>
+      <div className="button-secondary-actions">
+        <button
+          onClick={handleClickReturn}
+          type="submit"
+        >
+          Voltar
+        </button>
 
-          <button
-            onClick={handleClickReturn}
-            type="submit"
-          >
-            Voltar
-          </button>
-
-          <button
-            disabled={buttonConfirmDisabled}
-            onClick={handleClickConfirm}
-            type="button"
-          >
-            Confirmar
-          </button>
-        </form>
+        <button
+          disabled={buttonConfirmDisabled}
+          onClick={handleClickConfirm}
+          type="button"
+        >
+          Confirmar
+        </button>
       </div>
     </div>
   )
 }
 
 export default DepositAndWithdraw;
-
