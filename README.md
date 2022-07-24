@@ -2,7 +2,7 @@
      📈<a href="#" alt="blog"> Xarly Investiments </a>📉
 </h1>
 <h2 align="center">
-	⛔CSS em construção⛔
+	🚀Concluído🚀
 </h2>
 
 <br>
@@ -61,16 +61,19 @@ Tabela de conteúdos
 
 - **Tela de Depósito e Saque**
   <br>
+  Ao clicar no botão d "Depósito/ Saque' ao final da página de ações, o usuário será redirecionado para a página de saque e depósito. A pessoa poderá digitar o valor no campo em branco e selecionar a opação desejada (saque/depósito). Então clicar em confirmar para realzar a operação ou clicar em 'Voltar' para retornar a página anterior.
   <br>
 
+#### ➤ **Deploy da Aplicação**
+  A plataforma escolhida para realizar o deploy foi o Vercel App, por ter uma performance melhor para React do que as outras opções encontradas.
+- https://xarly-investiments.vercel.app/
 
 #### ➤ **Implementações Futuras**
-- Arrumar bugs para poder retornar as ações compradas corretamente.
-- Arrumar bugs para renderizar o valor do saldo corretamente.
 - Autenticação ao realizar login
 - Estilizar com Tailwind CSS
 - Gerar o código do cliente com UUID (Universally Unique Identifier)
 - Implementar dark mode
+- Criar e integrar com backend
 - Testes
 - Tratamento de Erros
 
