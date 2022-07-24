@@ -6,7 +6,13 @@ const EquitiesContext = createContext([]);
 
 export function EquitiesProvider({ children }) {
   const [saleEquities, setSaleEquities] = useState([]);
-  const [myEquities, setMyEquities] = useState([]);
+  const [myEquities, setMyEquities] = useState([
+    {
+      CodAtivo: "XPBR31",
+      QtdeAtivo: 20,
+      Valor: 94.31
+  }
+  ]);
 
   const getEquitiesByClientId = (clientId) => {
     fetchEquitiesByClientId(clientId)
