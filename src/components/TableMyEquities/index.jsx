@@ -37,7 +37,7 @@ function TableMyEquities () {
             <tbody>
               {
                 myEquities.map((equity, index) => (
-                  <tr key={equity[index]}>
+                  <tr key={index}>
                     <td>{equity.CodAtivo}</td>
                     <td>{equity.QtdeAtivo}</td>
                     <td>{equity.Valor}</td>
