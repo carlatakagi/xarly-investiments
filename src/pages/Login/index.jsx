@@ -1,22 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../shared/providers/UserProvider';
 import './styles.css';
+
+const MIN_CHARACTERS = 6;
 
 function Login() {
   const navigate = useNavigate();
-  const MIN_CHARACTERS = 6;
+  const { setUser } = useUserContext();
 
   const [email, setEmail] = useState('');
+  const [isValidEmail, setIsValidEmail] = useState(true);
   const [password, setPassword] = useState('');
-  const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [isValidPassword, setIsValidPassword] = useState(true);
 
-  useEffect(() => {
-    if(email.includes('@') && email.includes('.com') && password.length >= MIN_CHARACTERS) {
-      setButtonDisabled(false);
-    } else {
-    setButtonDisabled(true);
-    }
-  }, [email, password]);
+  const isValidUserLogin = () => {
+    const validateEmail = email.includes('@') && email.includes('.com');
+    const validatePassword = password.length >= MIN_CHARACTERS;
+
+    setIsValidEmail(validateEmail);
+    setIsValidPassword(validatePassword);
+
+    return validateEmail && validatePassword;
+  }
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -28,13 +34,15 @@ function Login() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log('clicou');
 
-    const userEmail = {email: email};
+    if (!isValidUserLogin()) return;
+
+    const clientId = Math.floor(Math.random() * 101);
     const dateNow = new Date().toLocaleString();
+    const user = { email, clientId, dateNow };
 
-    localStorage.setItem('email', JSON.stringify(userEmail));
-    localStorage.setItem('newDate', JSON.stringify(dateNow));
+    setUser(user);
+
     navigate('/equities');
   }
 
@@ -53,6 +61,7 @@ function Login() {
             type="email"
           />
         </label>
+        {!isValidEmail && <p className="error-message">O email não é válido</p>}
 
         <label htmlFor="password">
           <input
@@ -62,11 +71,11 @@ function Login() {
             type="password"
           />
         </label>
+        {!isValidPassword && <p className="error-message">A senha deve ter mais de 6 caracteres</p>}
 
         <button
-          disabled={buttonDisabled}
           onClick={handleClick}
-          type="submit"  
+          type="submit"
         >
           Entrar
         </button>
@@ -75,4 +84,4 @@ function Login() {
   )
 }
 
-export default Login; 
+export default Login;

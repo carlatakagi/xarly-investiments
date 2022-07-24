@@ -1,3 +1,7 @@
+.form-login {
+  width: 25%;
+}
+
 .container {
   align-items: center;
   display: flex;
@@ -7,7 +11,7 @@
 
 .container header h1{
   align-items: center;
-  color: #ffe100;
+  color: #121212;
   display: flex;
   justify-content: space-between;
   margin: 84px 0 24px;
@@ -19,16 +23,21 @@
   border-radius: 5px;
   border: 1px rgba(0, 0, 0, 0.389) solid;
   font-size: 1.75rem;
-  margin-top: 10px;
+  margin: 10px 0 10px;
   padding: 24px;
   width: 100%;
 }
 
+.container .error-message {
+  color: #E01919;
+  font-size: 1.5rem;
+}
+
 .container button {
-  background: #ffe100;
+  background: #FBC205;
   border: none;
   border-radius: 5px;
-  color: #FFF;
+  color: #000000;
   cursor: pointer;
   font-size: 1.75rem;
 
