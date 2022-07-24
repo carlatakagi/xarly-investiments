@@ -1,5 +1,5 @@
 <h1 align="center">
-     💲<a href="#" alt="blog"> Xarly Investiments </a>💲
+     📈<a href="#" alt="blog"> Xarly Investiments </a>📉
 </h1>
 <h2 align="center">
 	⛔CSS em construção⛔
@@ -23,9 +23,56 @@ Tabela de conteúdos
 
 ## 💻 Sobre o projeto
 
-  Aplicação que simula um aplicativo de compra e venda de ações da bolsa de valores
+  Aplicação que simula uma carteira de compra e venda de ações da bolsa de valores.
   <br>
-  Desenvolvida em React com Hooks,
+  Desenvolvida em React com Hooks para deixar o código mais legível e objetivo, além de deixar o compartilhamento de estados e manutenção de código mais fáceis.
+  <br>
+  Para o desenvolvimento da aplicação, foi criada e utilizada uma API com informações fictícias, que está no repositório: https://github.com/carlatakagi/equities-api
+  <br>
+  Para estilizar o projeto, foi utilizado CSS puro e com o máximo de responsividade para se adequar a vários tamanhos de tela. A escolha de estilizar com CSS puro foi por organização e fácil manutenção devido ao prazo, mas gostaria de ter utilizado o Tailwind CSS para ampliar meu conhecimento.
+  <br>
+
+#### ➤ **Principais Funcionalidades**
+
+- **Tela de Login**
+  <br>
+  Possui um formulário com dois campos para preencher o e-mail e a senha do usuário, também é validado se a informação é um e-mail e se a senha possui no mínimo 6 caracteres. Ao clicar no botão de "Entrar", as informações de e-mail e data de acesso serão salvas em um estado e o usuário (e-mail) será apresentado no cabeçalho das próximas páginas.
+  <br>
+
+- **Tela de Lista de Ações**
+  <br>
+  Esta tela mostra ao usuário, todas as suas ações compradas e as disponíveis para compra, além do cabeçalho com o e-mail do usuário logado.
+  <br>
+  Na seção de ações compradas, caso o usuário ainda não tenha adquirido nenhuma ação, irá aparecer a seguinte mensagem "Você ainda não possui ações.", caso contrário, irá aparecer suas compras, quantidades, valor e dois botões para comprar (C) ou vender (V) estas ações.
+  <br>
+  Na seção de ações disponíveis, irá aparecer somente as ações que não foram adquiradas pelo usuário, com o nome da ação, a quantidade disponível, o valor unitário e um botão para comprar a ação selecionada.
+  <br>
+  Ao final da página, existe um botão para realizar saque ou depósito na conta do usuário.
+  <br>
+
+- **Tela de Compra e Venda de Ações**
+  <br>
+  Ao clicar em um dos botões de comprar ou vender ações na página anterior, o usuário será direcionado para a tela de compra e venda de ações, mostrando as informações do produto selecionado.
+  <br>
+  Nesta tela, o usuário poderá digitar a quantidade de ações que quer comprar ou vender, e, caso esta quantidade esteja disponível, a operação é realizada com sucesso e retorna a página anterior, com as informações atualizadas.
+  <br>
+  Também existe um botão ("Voltar") que o usuário poderá clicar para retornar a página anterior.
+  <br>
+
+- **Tela de Depósito e Saque**
+  <br>
+  <br>
+
+
+#### ➤ **Implementações Futuras**
+- Arrumar bugs para poder retornar as ações compradas corretamente.
+- Arrumar bugs para renderizar o valor do saldo corretamente.
+- Autenticação ao realizar login
+- Estilizar com Tailwind CSS
+- Gerar o código do cliente com UUID (Universally Unique Identifier)
+- Implementar dark mode
+- Testes
+- Tratamento de Erros
 
 ---
 ## 🛠 Tecnologias
@@ -61,10 +108,10 @@ $ npm run dev
 
 ## 🎨 Layout
 
-<!-- Conheça a aplicação:
+Conheça a aplicação:
 
 <a href="">
-  <img alt="Página que mostra os planetas do Sistema Solar" src="./solarsystem.gif">
+  <img alt="Aplicação que simula carteira de compra e venda de investimentos" src="./assets/../src/assets/layout.gif">
 </a>
 
 <p align="center">
@@ -79,7 +126,7 @@ $ npm run dev
 
   </a>
 
-</p> -->
+</p>
 
 
 ---
