@@ -1,12 +1,12 @@
-.title-purchaseandsale {
+.title-purchase-sale {
   align-items: center;
   display: flex;
 }
 
-.title-purchaseandsale h1 {
+.title-purchase-sale h1 {
   align-items: center;
-  background: rgba(0, 0, 0, 0.802);
-  color: #ffe100;
+  background: #222222;
+  color: #FBC205;
   display: flex;
   flex-direction: column;
   font-size: 3rem;
@@ -17,24 +17,56 @@
   width: 100%;
 }
 
-.button-purchaseandsale {
+table {
+  font-size: 2.5rem;
+
+  width: 80%;
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+.form-purchase-sale {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 20px;
+}
+
+.form-purchase-sale span {
+  color: #000000;
+  font-size: 2rem;
+
+  font-weight: 700;
+  margin: 5px;
+  padding: 10px;
+}
+
+.form-purchase-sale input {
+  color: #000000;
+  font-size: 1.5rem;
+  border: 1px solid #222222;
+  text-align: center;
+  padding: 5px;
+  width: 50%;
+}
+
+.button-purchase-sale {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 20px;
-  padding: 30px 0;
+  margin-top: 50px;
 }
 
-.button-purchaseandsale button {
-  background: #ffe100;
+.button-purchase-sale button {
+  background: #FBC205;
   border: none;
   border-radius: 30px;
-  color: rgb(3, 3, 3);
+  color: #000000;
   cursor: pointer;
   font-size: 1.75rem;
 
   font-weight: 700;
-  margin: 12px 0 84px;
   padding: 24px;
 
   text-align: center;
@@ -42,61 +74,19 @@
   width: 25%;
 }
 
-.div-form-purchaseandsale {
-  display: flex;
-  justify-content: space-evenly;
-  text-align: center;
-}
-
-.div-form-purchaseandsale input {
-  background: #E6E6E6;
-  border-radius: 5px;
-  border: 1px rgba(0, 0, 0, 0.389) solid;
-  font-size: 1.5rem;
-  margin: 10px;
-  padding: 10px;
-  width: 50%;
-}
-
-.input-sale span {
-  background: #0062ff;
-  border: 1px rgba(0, 0, 0, 0.389) solid;
-  border-radius: 5px;
-  color: rgb(0, 0, 0);
-  font-size: 1.5rem;
-
-  font-weight: 700;
-  margin: 5px;
-  padding: 10px;
-}
-
-.input-purchase span {
-  background: #20d12f;
-  border: 1px rgba(0, 0, 0, 0.389) solid;
-  border-radius: 5px;
-  color: rgb(0, 0, 0);
-  cursor: pointer;
-  font-size: 1.75rem;
-
-  font-weight: 700;
-  margin: 5px;;
-  padding: 10px;
-  width: 25%;
-}
-
 @media (max-width: 400px) {
-  .title-purchaseandsale h1 {
+  .title-purchase-sale h1 {
     font-size: 2rem;
   }
 
-  .button-purchaseandsale button {
+  .button-purchase-sale button {
     font-size: 1.5rem;
     margin: 8px;
     padding: 13px;
     border-radius: 14px;
   }
 
-  .input-purchase .input-sale span {
+  .form-purchase-sale span {
     font-size: 1.15rem;
     margin: 8px;
     padding: 13px;
@@ -106,13 +96,13 @@
 }
 
 @media (max-width: 375px) {
-  .button-purchaseandsale button {
+  .button-purchase-sale button {
     margin: 8px;
     padding: 10px;
     border-radius: 10px;
   }
 
-  .input-purchase .input-sale span {
+  .form-purchase-sale span {
     font-size: 1.1rem;
     margin: 8px;
     padding: 10px;
@@ -121,7 +111,7 @@
 }
 
 @media (max-width: 320px) {
-  .input-purchase .input-sale span {
+  .form-purchase-sale span {
     font-size: 0.5rem;
     margin: 8px;
     padding: 13px;

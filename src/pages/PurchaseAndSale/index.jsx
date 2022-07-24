@@ -1,40 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useEquitiesContext } from '../../shared/providers/EquitiesProvider';
+import { useUserContext } from '../../shared/providers/UserProvider';
 import Header from '../../components/Header/index';
-
-import {/*  fetchBuyEquity, fetchSellEquity, */ fetchEquityById } from '../../services/fetchApi.jsx';
-
+import { fetchBuyEquity, fetchSellEquity, fetchEquityById } from '../../shared/services/fetchApi';
 import './styles.css';
 
 function PurchaseAndSale () {
   const navigate = useNavigate();
-  const {state: {isSelling}} = useLocation();
+  const {state: { isSelling }} = useLocation();
   const { CodAtivo } = useParams();
+  const { user } = useUserContext();
+  const { getEquitiesByClientId } = useEquitiesContext();
 
-  const [equityById, setEquityById] = useState([]);
+  const [equity, setEquity] = useState({});
+  const [equityQuantity, setEquityQuantity] = useState(0);
 
   const getEquitiesById = () => {
     fetchEquityById(CodAtivo)
       .then((response) => {
-        console.log(response.CodAtivo);
-        setEquityById(response);
+        setEquity(response);
+        console.log(CodAtivo);
       });
   };
 
   useEffect(() => { getEquitiesById(); }, []);
 
-  /* const getSellEquities = () => {
-    fetchSellEquity()
-      .then((response) => {
-        const sellEquitiesResponse = response.filter((equity) => equity.CodCliente);
-        console.log(response);
-        setSellEquity(sellEquitiesResponse);
-      });
-  }; */
+  const getSellEquities = () => fetchSellEquity({
+    clientId: user.clientId,
+    CodAtivo,
+    equityQuantity
+  });
 
+  const getBuyEquities = () => fetchBuyEquity({
+    clientId: user.clientId,
+    CodAtivo,
+    equityQuantity
+  });
 
   const handleChange = (e) => {
-    setValue(e.target.value);
+    setEquityQuantity(e.target.value);
   }
 
   const handleClickReturn = (e) => {
@@ -44,79 +49,58 @@ function PurchaseAndSale () {
 
   const handleClickConfirm = (e) => {
     e.preventDefault();
-    window.alert("Sua página de ações será atualizada em até 1h.")
+
+    window.alert("Sua página de ações será atualizada em até 1h.");
+
+    isSelling ? getSellEquities() : getBuyEquities();
+
+    getEquitiesByClientId(user.clientId);
+    navigate('/equities');
   }
+
+  const textInputLabel = isSelling ? 'Informe a quantidade que deseja vender' : 'Informe a quantidade que deseja comprar';
 
   return (
     <div>
       <Header />
 
-      <div className="title-purchaseandsale">
-        <h1>Comprar e Vender Ações</h1>
+      <div className="title-purchase-sale">
+        {isSelling ?  <h1>Vender Ações</h1> :  <h1>Comprar Ações</h1>}
       </div>
 
-      <div className="table">
+      <div className="table-equity">
       <table>
         <thead>
           <tr>
             <th>Ação</th>
             <th>Quantidade</th>
             <th>Valor (R$)</th>
-           </tr>
+          </tr>
         </thead>
 
         <tbody>
           <tr>
-            <td>{equityById.CodAtivo}</td>
-            <td>{equityById.QtdeAtivo}</td>
-            <td>{equityById.Valor}</td>
+            <td>{equity.CodAtivo}</td>
+            <td>{equity.QtdeAtivo}</td>
+            <td>{equity.Valor}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-      <div className="div-form-purchaseandsale">
-        <form className="form-purchase-sale">
-          <div className="input-sale">
+    <form className="form-purchase-sale">
+      <span>{textInputLabel}</span>
+      <label htmlFor="value">
+        <input
+          name="value"
+          placeholder="0"
+          onChange={e => handleChange(e)}
+          type="number"
+        />
+      </label>
+    </form>
 
-          {isSelling ?
-            <div className="input-purchase">
-              <span
-              >
-                Vender
-              </span>
-
-              <label htmlFor="valuepurchase">
-                <input
-                  name="value"
-                  placeholder="Informe a quantidade"
-                  onChange={e => handleChange(e)}
-                  type="number"
-                />
-              </label>
-
-            </div>
-            :
-            <div className="purchase-btn">
-            <span
-            >
-              Comprar
-            </span>
-            <label htmlFor="valuesale">
-              <input
-                name="value"
-                placeholder="Informe a quantidade"
-                onChange={e => handleChange(e)}
-                type="number"
-              />
-            </label>
-          </div>
-        }
-          </div>
-        </form>
-      </div>
-
-      <div className="button-purchaseandsale">
+      <div className="button-purchase-sale">
         <button
           onClick={handleClickReturn}
           type="submit"
