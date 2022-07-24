@@ -27,7 +27,7 @@ Tabela de conteúdos
   <br>
   Desenvolvida em React com Hooks para deixar o código mais legível e objetivo, além de deixar o compartilhamento de estados e manutenção de código mais fáceis.
   <br>
-  Para o desenvolvimento da aplicação, foi criada e utilizada uma API com informações fictícias, que está no repositório: https://github.com/carlatakagi/equities-api
+  Para o desenvolvimento da aplicação, foi criada e utilizada uma pequena API com informações fictícias, que está no repositório: https://github.com/carlatakagi/equities-api
   <br>
   Para estilizar o projeto, foi utilizado CSS puro e com o máximo de responsividade para se adequar a vários tamanhos de tela. A escolha de estilizar com CSS puro foi por organização e fácil manutenção devido ao prazo, mas gostaria de ter utilizado o Tailwind CSS para ampliar meu conhecimento.
   <br>
@@ -47,7 +47,7 @@ Tabela de conteúdos
   <br>
   Na seção de ações disponíveis, irá aparecer somente as ações que não foram adquiradas pelo usuário, com o nome da ação, a quantidade disponível, o valor unitário e um botão para comprar a ação selecionada.
   <br>
-  Ao final da página, existe um botão para realizar saque ou depósito na conta do usuário.
+  Ao final da página, existe um botão para realizar saque ou depósito na conta do usuário e que ao clicar, redireciona a pessoa para a página que realiza saque e depósito.
   <br>
 
 - **Tela de Compra e Venda de Ações**
@@ -118,14 +118,14 @@ Conheça a aplicação:
 </a>
 
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/carlatakagi/instagram-page?color=%2304D361">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/carlatakagi/xarly-investiments?color=%2304D361">
 
   <a href="https://github.com/carlatakagi/instagram-page/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/carlatakagi/instagram-page">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/carlatakagi/xarly-investiments">
   </a>
 
   <a href="https://github.com/carlatakagi/instagram-page/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/carlatakagi/instagram-page?style=social">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/carlatakagi/xarly-investiments?style=social">
 
   </a>
 
