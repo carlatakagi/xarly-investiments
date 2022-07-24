@@ -1,25 +1,24 @@
-.table {
+.table-equities {
   display: flex;
-  font-size: 2.5rem;
-  height: 50vh;
+  flex-direction: column;
 
-  margin: auto;
-  text-align: center;
+  font-size: 2.5rem;
   width: 100%;
+  margin: 50px 0;
 }
 
-.table table {
+.table-equities table {
   table-layout: fixed;
   margin: 10px;
   width: 100%;
 }
 
-.table thead, td, th {
-  border: 3px solid #ffe100;
+.table-equities thead, td, th {
+  border: 3px solid #FBC205;
 }
 
-.table button {
-  background: #ffe100ca;
+.table-equities button {
+  background: #FBC205;
   border: none;
   border-radius: 20px;
   color: rgb(0, 0, 0);
@@ -34,12 +33,12 @@
   transition: filter 0.3s;
 }
 
-.table button:hover {
+.table-equities button:hover {
   filter: brightness(0.9);
 }
 
 @media (max-width: 642px) {
-  .table {
+  .table-equities {
     display: flex;
     font-size: 2.5rem;
     height: 50vh;
@@ -52,11 +51,11 @@
 }
 
 @media (max-width: 573px) {
-  .table table {
+  .table-equities table {
     font-size: 2rem;
   }
 
-  .table button {
+  .table-equities button {
     font-size: 1.5rem;
     margin: 8px;
     padding: 13px;
@@ -65,11 +64,11 @@
 }
 
 @media (max-width: 508px) {
-  .table table {
+  .table-equities table {
     font-size: 2rem;
   }
 
-  .table button {
+  .table-equities button {
     font-size: 1.5rem;
     margin: 7px;
     padding: 10px;
@@ -78,18 +77,18 @@
 }
 
 @media (max-width: 470px) {
-  .table table {
+  .table-equities table {
     font-size: 1.5rem;
   }
 
-  .table button {
+  .table-equities button {
     font-size: 1.25rem;
     margin: 6px;
     padding: 9px;
     border-radius: 12px;
   }
 
-  .table {
+  .table-equities{
     display: flex;
     font-size: 1.5rem;
     height: 40vh;
@@ -102,11 +101,11 @@
 }
 
 @media (max-width: 430px) {
-  .table table {
+  .table-equities table {
     font-size: 1.5rem;
   }
 
-  .table button {
+  .table-equities button {
     font-size: 1.15rem;
     margin: 4px;
     padding: 8px;
@@ -115,7 +114,7 @@
 }
 
 @media (max-width: 402px) {
-  .table button {
+  .table-equities button {
     font-size: 1.15rem;
     margin: 4px;
     padding: 6.5px;
@@ -124,11 +123,11 @@
 }
 
 @media (max-width: 388px) {
-  .table table {
+  .table-equities table {
     font-size: 1.25rem;
   }
 
-  .table button {
+  .table-equities button {
     font-size: 1.15rem;
     margin: 4px;
     padding: 5.5px;
@@ -137,11 +136,11 @@
 }
 
 @media (max-width: 375px) {
-  .table table {
+  .table-equities table {
     font-size: 1rem;
   }
 
-  .table button {
+  .table-equities button {
     font-size: 1rem;
     margin: 5px;
     padding: 4.5px;

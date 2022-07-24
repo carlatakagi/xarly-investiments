@@ -1,25 +1,22 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useEquitiesContext } from '../../context/EquitiesProvider';
-import EquitiesContext from '../../context/EquitiesContext';
-
+import { useEquitiesContext } from '../../shared/providers/EquitiesProvider';
 import './styles.css';
 
 function TableMyEquities () {
   const navigate = useNavigate();
+  const { myEquities } = useEquitiesContext();
 
-  const {myEquities} = useEquitiesContext(EquitiesContext);
-
-  const handleClick = (e, codAtivo) => {
-    console.log(e);
+  const handleClick = (e, equityId) => {
     e.preventDefault();
 
     const isSelling = e.target.innerText === 'V';
-    navigate(`/purchaseandsale/${codAtivo}`, {state: {isSelling}});
+
+    navigate(`/purchaseandsale/${equityId}`, {state: { isSelling }});
   }
 
   return(
-    <div className="table">
+    <div className="table-equities">
       {
         myEquities.length > 0
         ?
@@ -39,8 +36,8 @@ function TableMyEquities () {
 
             <tbody>
               {
-                myEquities.map((equity) => (
-                  <tr key={equity.CodAtivo}>
+                myEquities.map((equity, index) => (
+                  <tr key={equity[index]}>
                     <td>{equity.CodAtivo}</td>
                     <td>{equity.QtdeAtivo}</td>
                     <td>{equity.Valor}</td>
