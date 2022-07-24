@@ -12,7 +12,6 @@ function Equities () {
   const { user } = useUserContext();
   const { getEquitiesByClientId } = useEquitiesContext();
 
-  console.log(user);
   useEffect(() => {
     getEquitiesByClientId(user.clientId);
   }, []);
