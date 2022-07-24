@@ -11,13 +11,12 @@ export function EquitiesProvider({ children }) {
   const getEquitiesByClientId = (clientId) => {
     fetchEquitiesByClientId(clientId)
       .then((response) => {
-        response.forEach((equity) => {
-          const myEquitiesResponse = response.filter((equity) => equity.CodCliente && equity.QtdeAtivo > 0);
-          setMyEquities(myEquitiesResponse);
+        const myEquitiesResponse = response.filter((equity) => equity.CodCliente && equity.QtdeAtivo > 0);
+        setMyEquities(myEquitiesResponse);
 
-          const saleEquitiesSale = response.filter((equity) => equity.QtdeAtivo > 0 && !equity.CodCliente);
-          setSaleEquities(saleEquitiesSale);
-        })
+        const saleEquitiesSale = response.filter((equity) => equity.QtdeAtivo > 0 && !equity.CodCliente);
+        setSaleEquities(saleEquitiesSale);
+
       });
   };
 
