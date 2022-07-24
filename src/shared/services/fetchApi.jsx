@@ -88,7 +88,7 @@ export const fetchSellEquity = async ({ clientId, equityId, equityQuantity }) =>
   }
 }
 
-export const fetchMakeDeposit = async (clientId, value) => {
+export const fetchMakeDeposit = async ({clientId, value}) => {
   try {
     const depositData = {
       codCliente: clientId,
@@ -116,7 +116,7 @@ export const fetchMakeDeposit = async (clientId, value) => {
   }
 }
 
-export const fetchMakeWithdraw = async (clientId, value) => {
+export const fetchMakeWithdraw = async ({clientId, value}) => {
   try {
     const withdrawData = {
       codCliente: clientId,
