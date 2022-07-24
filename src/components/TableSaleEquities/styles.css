@@ -1,16 +1,10 @@
 .table-sale-equities {
   display: flex;
-  font-size: 2.5rem;
-  height: 60vh;
-
-  margin: auto;
-  margin-top: 20px;
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-
   flex-direction: column;
 
+  font-size: 2.5rem;
+  width: 100%;
+  margin: 50px 0;
 }
 
 .table-sale-equities table {
@@ -25,7 +19,7 @@
 }
 
 .table-sale-equities button {
-  background: #ffe100ca;
+  background: #FBC205;
   border: none;
   border-radius: 20px;
   color: rgb(0, 0, 0);
