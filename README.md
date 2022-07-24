@@ -2,7 +2,7 @@
      📈<a href="#" alt="blog"> Xarly Investiments </a>📉
 </h1>
 <h2 align="center">
-	⛔CSS em construção⛔
+	🚀Concluído🚀
 </h2>
 
 <br>
